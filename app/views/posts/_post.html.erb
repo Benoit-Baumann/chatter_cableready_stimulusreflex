@@ -1,0 +1,22 @@
+<div class="mt-2 p-2 border rounded bg-gray-100">
+  <div class="mb-3 text-lg">
+    <%= post.body %>
+  </div>
+
+  <span class="opacity-50">
+    <strong><%= post.username %></strong>
+    <small><%= time_ago_in_words post.created_at %> ago</small>
+  </span>
+
+  <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline", data: { reflex: "click->PostsReflex#repost", id: post.id } do %>
+    <%= tag.span id: dom_id(post, "reposts") do %>
+      <%= pluralize post.reposts_count, "Repost" %>
+    <% end %>
+  <% end %>
+
+  <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline", data: { reflex: "click->PostsReflex#like", id: post.id } do %>
+    <%= tag.span post.likes_count, id: dom_id(post, "likes") do %>
+      <%= pluralize post.likes_count, "Like" %>
+    <% end %>
+  <% end %>
+</div>

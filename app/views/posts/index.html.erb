@@ -1,0 +1,12 @@
+<div class="container my-10 mx-auto">
+  <h1 class="text-4xl font-bold">
+    Chatter
+    <small class="text-lg font-light">A CableReady/StimulusReflex Demo</small>
+  </h1>
+
+  <%= render "form" %>
+
+  <div id="feed">
+    <%= render partial: "post", collection: @posts %>
+  </div>
+</div>
